@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <button id="btnSendRequest">Start testing</button>
+
+    <div id="result_panel" class="panel">
+        Нет данных
+    </div>
+
+    <script>
+        var btnSendRequest = document.getElementById("btnSendRequest");
+        var pnlResult = document.getElementById("result_panel");
+
+        btnSendRequest.addEventListener("click", function (event)
+        {
+            pnlResult.innerHTML = "<img src=\"/static/img-loading.gif\" style=\"width: 13px;\" /> Start testing...";
+            this.setAttribute("disabled", "disabled");
+
+            fetch('/api')
+                .then((res) => res.text())
+                .then((data) => {
+                    let json = JSON.parse(data);
+                    btnSendRequest.removeAttribute("disabled");
+
+                    if (json.status === 'error')
+                    {
+                        alert('Error ' + json.message);
+                        pnlResult.innerHTML = 'Ошибка...';
+                        return false;
+                    }
+
+                    pnlResult.innerHTML = 'Ваш результат:<br />----------------------<br/>Download: ' + json.download + '<br />Uploaded: ' + json.upload + '<br />Ping: ' + json.ping;
+                });
+        });
+    </script>
+
+{% endblock %}

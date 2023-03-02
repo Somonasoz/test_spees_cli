@@ -1,0 +1,10 @@
+click
+Flask
+importlib-metadata
+itsdangerous
+Jinja2
+MarkupSafe
+speedtest-cli
+Werkzeug
+zipp
+

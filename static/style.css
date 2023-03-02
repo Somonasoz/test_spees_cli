@@ -1,0 +1,44 @@
+
+body {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  background: transparent;
+}
+body::before {
+  content: "";
+  position: fixed;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+.logo{
+  width: 10%;
+  height: 10%;
+  padding: 1% 0 1.5% 0 ;
+  }
+
+.tell{
+  text-decoration: none;
+  color: #f7f300;
+  font-size: 1.1rem;
+  padding-right: 1rem;
+}
+
+
+button {
+  cursor: pointer;
+  border: 0;
+  padding: 10px 15px;
+  background: #393185;
+  color: #fff;
+}
+
+.panel {
+  padding: 10px;
+  border: 1px solid #b2b2b2;
+  margin: 10px 0;
+}
